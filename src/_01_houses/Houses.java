@@ -13,11 +13,10 @@ public class Houses {
 		Random ran = new Random();
 		int q = ran.nextInt(2);
 		if (q == 0) {
-			for (int i = 0; i < 10; i++) {
-				int col = ran.nextInt(151);
-				int red = col;
-				int blue = col;
-				int green = col;
+			for (int i = 0; i < 10; i++) {		
+				int red = ran.nextInt(256);
+				int blue = ran.nextInt(256);
+				int green = ran.nextInt(256);
 				Color colour = new Color(red, blue, green);
 				int height = ran.nextInt(251);
 				drawHouse(height, colour);
@@ -25,10 +24,9 @@ public class Houses {
 		}
 			if (q == 1) {
 				for (int i = 0; i < 10; i++) {
-					int col = ran.nextInt(150);
-					int red = col;
-					int blue = col;
-					int green = col;
+					int red = ran.nextInt(256);
+					int blue = ran.nextInt(256);
+					int green = ran.nextInt(256);
 					Color colour = new Color(red, blue, green);
 					int hight = ran.nextInt(3);
 					String heght = "small";
@@ -49,6 +47,9 @@ public class Houses {
 		rob.setPenColor(colour);
 		rob.setSpeed(30);
 		rob.penDown();
+		//This determines whether the building is triangular or has a flat roof. This
+		//then gets implemented into the code. Most of the variables are = to 0 but if the 
+		//building is at a certain height it will change to create the shape of the roof.
 		int tip = 90;
 		int monkey = 0;
 		int bob = 0;
@@ -84,6 +85,9 @@ public class Houses {
 		}
 		rob.setSpeed(30);
 		rob.penDown();
+		//This determines whether the building is triangular or has a flat roof. This
+		//then gets implemented into the code. Most of the variables are = to 0 but if the 
+		//building is at a certain height it will change to create the shape of the roof.
 		int tip = 90;
 		int monkey = 0;
 		int bob = 0;
