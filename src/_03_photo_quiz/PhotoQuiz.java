@@ -57,9 +57,15 @@ quizWindow.add(pic1);
 		// 12. pack the quiz window
 quizWindow.pack();
 		// 13. ask another question
-String program = JOptionPane.showInputDialog("");
+String program = JOptionPane.showInputDialog("What show are these actors from?");
 		// 14+ check answer, say if correct or incorrect, etc.
-
+if (program.equals("Cheers")) {
+	JOptionPane.showMessageDialog(null, "CORRECT");
+}
+else {
+	JOptionPane.showMessageDialog(null, "INCORRECT");
+}
+quizWindow.remove(pic1);	
 	}
 
 	private Component createImage(String imageUrl) throws MalformedURLException {

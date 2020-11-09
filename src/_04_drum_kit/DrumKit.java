@@ -6,6 +6,7 @@ package _04_drum_kit;
 
 import java.applet.AudioClip;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.net.MalformedURLException;
@@ -25,33 +26,34 @@ public class DrumKit implements MouseListener {
 	public void run() throws MalformedURLException {
 
 		// 1. Make a JFrame variable and initialize it using "new JFrame()"
-
+		JFrame bob = new JFrame();
 		// 2. Make the frame visible and
 		// set its default close operation to JFrame.EXIT_ON_CLOSE
-
-		// 3. Set the size of the frame
-
+bob.setVisible(true);
+		bob.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+// 3. Set the size of the frame
+bob.setSize(750, 750);
 		// 4. Set the title of the frame
-
+bob.setTitle("Hello");
 		// 5. Make a JPanel variable and initialize it using "new JPanel().
-
+JPanel panel = new JPanel();
 		// 6. Add the panel to the frame. (The panel is invisible.)
-
+bob.add(panel);
 		// 7. Download an image of a drum from the Internet. Drop it into your
 		// Eclipse project under "default package".
-
+//done
 		// 8. Put the name of your image file in a String variable.
-
+String drum = "DRUM.png";
 		// 9. Edit the next line to use your String variable
 		// drumLabelWithImage = createLabelImage(drumImageString);
-
+drumLabelWithImage = createLabelImage(drum);
 		// 10. Add the image to the panel
-
+bob.add(drumLabelWithImage);
 		// 11. Set the layout of the panel to "new GridLayout()"
-
+panel.setLayout(new GridLayout());
 		// 12. call the pack() method on the frame. Run your program. Do you see
 		// your drum image?
-
+bob.pack();
 		// 13. add this mouse listener to drumLabelWithImage
 
 		// 18. Add more images to make a drumkit. Remember to add this mouse
@@ -84,7 +86,10 @@ public class DrumKit implements MouseListener {
 			System.err.println("Could not find image " + fileName);
 			return new JLabel();
 		}
-		Icon icon = new ImageIcon(imageURL);
+		ImageIcon icon = new ImageIcon(imageURL);
+		Image image = icon.getImage(); // transform it 
+		Image newimg = image.getScaledInstance(120, 120,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+		icon = new ImageIcon(newimg);  // transform it back)
 		JLabel imageLabel = new JLabel(icon);
 		return imageLabel;
 	}
