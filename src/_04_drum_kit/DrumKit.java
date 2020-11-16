@@ -32,7 +32,7 @@ public class DrumKit implements MouseListener {
 bob.setVisible(true);
 		bob.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 // 3. Set the size of the frame
-bob.setSize(750, 750);
+//The panel was making itself small and not centering the picture -- I ended up taking the set size away.
 		// 4. Set the title of the frame
 bob.setTitle("Hello");
 		// 5. Make a JPanel variable and initialize it using "new JPanel().
@@ -43,28 +43,34 @@ bob.add(panel);
 		// Eclipse project under "default package".
 //done
 		// 8. Put the name of your image file in a String variable.
-String drum = "DRUM.png";
-		// 9. Edit the next line to use your String variable
+String drum = "snare.jpg";
+String drum1 = "cymbal.jpg";
+String drum3 = "DRUM.png";
+// 9. Edit the next line to use your String variable
 		// drumLabelWithImage = createLabelImage(drumImageString);
 drumLabelWithImage = createLabelImage(drum);
-		// 10. Add the image to the panel
+
+// 10. Add the image to the panel
 bob.add(drumLabelWithImage);
-		// 11. Set the layout of the panel to "new GridLayout()"
+bob.add(createLabelImage(drum1));
+
+bob.add(createLabelImage(drum3));
+
+// 11. Set the layout of the panel to "new GridLayout()"
 panel.setLayout(new GridLayout());
 		// 12. call the pack() method on the frame. Run your program. Do you see
 		// your drum image?
 bob.pack();
 		// 13. add this mouse listener to drumLabelWithImage
-
+drumLabelWithImage.addMouseListener(this);
 		// 18. Add more images to make a drumkit. Remember to add this mouse
 		// listener to each one.
-
 	}
 
 	public void mouseClicked(MouseEvent e) {
 		// 14. Print "mouse clicked" to the console. Run your program and watch
 		// the console to see when this is printed.
-
+System.out.println("mouse clicked");
 		JLabel drumClicked = (JLabel) e.getSource(); // This line gets the label
 														// that the mouse
 														// clicked on
