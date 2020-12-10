@@ -68,7 +68,7 @@ public class Jack_in_the_Box implements ActionListener{
 			// TODO Auto-generated method stub
 			count++;
 		if (count == 5) {
-			
+			showPicture("jackInTheBox.png");
 		}
 		}
 
